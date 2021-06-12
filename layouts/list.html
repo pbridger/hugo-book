@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ range (sort .Paginator.Pages "Params.date" "desc") }}
+  {{ range (sort (where .Paginator.Pages ".Params.metapage" "!=" "true") "Params.date" "desc") }}
   <article class="markdown book-post">
     <h2>
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
